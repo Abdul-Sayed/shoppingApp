@@ -1,0 +1,27 @@
+<div style="border: 3px dashed red">
+    <p style="text-align: center;">Shopping Edit</p>
+    <div class="row">
+        <form>
+            <div class="row">
+                <div class="col-sm-5 form-group">
+                    <label for="name">Name</label>
+                    <input #ingredientName type="text" id="name" class="form-control">
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label for="amount">Amount</label>
+                    <input #ingredientAmount type="number" id="amount" class="form-control">
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-success mr-20"
+                            (click)="shoppingService.addIngredient({name: ingredientName.value, amount: +ingredientAmount.value})">
+                            Add
+                        </button>
+                        <button type="button" class="btn btn-danger mr-20">Delete</button>
+                        <button type="button" class="btn btn-primary mr-20  ">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
