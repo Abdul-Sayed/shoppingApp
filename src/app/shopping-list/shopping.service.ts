@@ -1,14 +1,15 @@
-import { Injectable, EventEmitter, OnInit } from '@angular/core';
-import {Ingredient} from '../shared/ingredient.model';
+import { Injectable, OnInit } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingService implements OnInit {
 
-  ingredientsChanged = new EventEmitter<Ingredient[]>();
+  ingredientsChanged = new Subject<Ingredient[]>();
 
-  private _ingredients: Ingredient[] = [ 
+  private _ingredients: Ingredient[] = [
     new Ingredient('apple', 5),
     new Ingredient('tomatoes', 10)
   ];
@@ -16,7 +17,7 @@ export class ShoppingService implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.ingredientsChanged.emit(this._ingredients.slice());
+    this.ingredientsChanged.next(this._ingredients.slice());
   }
 
   getIngredients() {
@@ -24,12 +25,12 @@ export class ShoppingService implements OnInit {
   }
 
   addIngredient(ingredient: Ingredient) {
-    this._ingredients.push(new Ingredient(ingredient.name,  ingredient.amount));
-    this.ingredientsChanged.emit(this._ingredients.slice());
+    this._ingredients.push(new Ingredient(ingredient.name, ingredient.amount));
+    this.ingredientsChanged.next(this._ingredients.slice());
   }
 
   addIngredients(ingredients: Ingredient[]) {
     this._ingredients.push(...ingredients);
-    this.ingredientsChanged.emit(this._ingredients.slice());
+    this.ingredientsChanged.next(this._ingredients.slice());
   }
 }

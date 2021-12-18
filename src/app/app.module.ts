@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { MatInputModule } from '@angular/material/input';
     RecipesComponent,
     ShoppingEditComponent,
     DropdownDirective,
+    RecipeStartComponent,
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,

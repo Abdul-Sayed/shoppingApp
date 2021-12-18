@@ -125,20 +125,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#selectedRecipe" >selectedRecipe</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -150,9 +136,6 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
-                            </li>
-                            <li>
-                                <a href="#onRecipeChosen" >onRecipeChosen</a>
                             </li>
                         </ul>
                     </td>
@@ -177,7 +160,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/recipes/recipes.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/recipes/recipes.component.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -244,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/recipes/recipes.component.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">src/app/recipes/recipes.component.ts:14</a></div>
                 </td>
             </tr>
 
@@ -259,107 +242,6 @@
                     </div>
                 </td>
             </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="onRecipeChosen"></a>
-                    <span class="name">
-                        <span ><b>onRecipeChosen</b></span>
-                        <a href="#onRecipeChosen"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>onRecipeChosen(rcp: <a href="../interfaces/IRecipe.html" target="_self">IRecipe</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/recipes/recipes.component.ts:20</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>rcp</td>
-                                    <td>
-                                                <code><a href="../interfaces/IRecipe.html" target="_self" >IRecipe</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-    <section>
-    
-    <h3 id="inputs">
-        Properties
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="selectedRecipe"></a>
-                    <span class="name">
-                        <span ><b>selectedRecipe</b></span>
-                        <a href="#selectedRecipe"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/IRecipe.html" target="_self" >IRecipe</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/recipes/recipes.component.ts:12</a></div>
-                        </td>
-                    </tr>
-
-
         </tbody>
     </table>
 </section>
@@ -379,16 +261,10 @@ import { RecipeService } from &#x27;./recipe.service&#x27;;
 })
 export class RecipesComponent implements OnInit {
 
-  selectedRecipe!: IRecipe;
-
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    this.recipeService.recipeSelected.subscribe( (recipe: IRecipe) &#x3D;&gt; this.selectedRecipe &#x3D; recipe);
-  }
 
-  onRecipeChosen(rcp:IRecipe) {
-    this.selectedRecipe &#x3D; rcp;
   }
 
 }
@@ -403,12 +279,9 @@ export class RecipesComponent implements OnInit {
             &lt;app-recipe-list&gt;&lt;/app-recipe-list&gt;
         &lt;/div&gt;
         &lt;div class&#x3D;&quot;col-md-7&quot;&gt;
-            &lt;!-- &lt;app-recipe-detail *ngIf&#x3D;&quot;selectedRecipe; else infoText&quot; [currentRecipe]&#x3D;&quot;selectedRecipe&quot;&gt;&lt;/app-recipe-detail&gt;
-            &lt;ng-template #infoText&gt;Please select a recipe&lt;/ng-template&gt; --&gt;
             &lt;router-outlet&gt;&lt;/router-outlet&gt;
         &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+    &lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -443,8 +316,8 @@ export class RecipesComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div style="border: 3px dotted gray">    <p style="text-align: center;">Recipes</p>    <div class="row">        <div class="col-md-5">            <app-recipe-list></app-recipe-list>        </div>        <div class="col-md-7">            <!-- <app-recipe-detail *ngIf="selectedRecipe; else infoText" [currentRecipe]="selectedRecipe"></app-recipe-detail>            <ng-template #infoText>Please select a recipe</ng-template> -->            <router-outlet></router-outlet>        </div>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'RecipeDetailComponent', 'selector': 'app-recipe-detail'},{'name': 'RecipeItemComponent', 'selector': 'app-recipe-item'},{'name': 'RecipeListComponent', 'selector': 'app-recipe-list'},{'name': 'RecipesComponent', 'selector': 'app-recipes'},{'name': 'ShoppingEditComponent', 'selector': 'app-shopping-edit'},{'name': 'ShoppingListComponent', 'selector': 'app-shopping-list'}];
+        var COMPONENT_TEMPLATE = '<div><div style="border: 3px dotted gray">    <p style="text-align: center;">Recipes</p>    <div class="row">        <div class="col-md-5">            <app-recipe-list></app-recipe-list>        </div>        <div class="col-md-7">            <router-outlet></router-outlet>        </div>    </div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'RecipeDetailComponent', 'selector': 'app-recipe-detail'},{'name': 'RecipeEditComponent', 'selector': 'app-recipe-edit'},{'name': 'RecipeItemComponent', 'selector': 'app-recipe-item'},{'name': 'RecipeListComponent', 'selector': 'app-recipe-list'},{'name': 'RecipesComponent', 'selector': 'app-recipes'},{'name': 'RecipeStartComponent', 'selector': 'app-recipe-start'},{'name': 'ShoppingEditComponent', 'selector': 'app-shopping-edit'},{'name': 'ShoppingListComponent', 'selector': 'app-shopping-list'}];
     var DIRECTIVES = [{'name': 'DropdownDirective', 'selector': '[appDropdown]'}];
     var ACTUAL_COMPONENT = {'name': 'RecipesComponent'};
 </script>

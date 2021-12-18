@@ -2,42 +2,33 @@
     <p style="text-align: center;">Recipe Detail</p>
     <div class="row">
         <div class="col-xs-12">
-            <img src={{currentRecipe.imagePath}}} alt={{currentRecipe.name}} class="img-responsive"
+            <img src={{currentRecipe?.imagePath}} alt={{currentRecipe?.name}} class="img-responsive"
                 style="max-height: 4rem">
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <h1>{{currentRecipe.name}}</h1>
+            <h1>{{currentRecipe?.name}}</h1>
         </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div appDropdown class="btn-group dropdown">
-                    <div mdbDropdown class="dropdown">
-                        <a class="btn btn-primary dropdown-toggle" role="button" id="dropdownMenuLink" mdbDropdownToggle
-                            aria-expanded="false">
-                            Manage Recipe
-                        </a>
 
-                        <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" (click)="addIngredients()">Add to List</a></li>
-                            <li><a class="dropdown-item">Edit Recipe</a></li>
-                            <li><a class="dropdown-item">Delete Recipe</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <mat-form-field appearance="fill" style="width:fit-content">
+            <mat-label>Manage Recipe</mat-label>
+            <mat-select>
+                <mat-option value="Add to List" (click)="addIngredients()">Add to List</mat-option>
+                <mat-option value="Edit Recipe" routerLink="edit">Edit Recipe</mat-option>
+                <mat-option value="Delete Recipe">Delete Recipe</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            {{currentRecipe.description}}
+            {{currentRecipe?.description}}
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
             <ul class="list-group">
-                <li *ngFor="let ingredient of currentRecipe.ingredients" class="list-group-item">
+                <li *ngFor="let ingredient of currentRecipe?.ingredients" class="list-group-item">
                     {{ingredient.name}} - {{ingredient.amount}}
                 </li>
             </ul>

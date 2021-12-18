@@ -360,19 +360,20 @@ export class ShoppingListComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row&quot;&gt;
-    &lt;div class&#x3D;&quot;col-xs-10&quot;&gt;
-        &lt;app-shopping-edit&gt;&lt;/app-shopping-edit&gt;
-        &lt;hr&gt;
-        &lt;ul class&#x3D;&quot;list-group&quot;&gt;
-            &lt;a *ngFor&#x3D;&quot;let ingredient of ingredients&quot; style&#x3D;&quot;cursor: pointer&quot; class&#x3D;&quot;list-group-item&quot;&gt;
-                {{ingredient.name}} ({{ingredient.amount}})
-            &lt;/a&gt;
-        &lt;/ul&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;border: 2px dotted black&quot;&gt;
+    &lt;p style&#x3D;&quot;text-align: center;&quot;&gt;Shopping List&lt;/p&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-xs-10&quot;&gt;
+            &lt;app-shopping-edit&gt;&lt;/app-shopping-edit&gt;
+            &lt;hr&gt;
+            &lt;ul class&#x3D;&quot;list-group&quot;&gt;
+                &lt;a *ngFor&#x3D;&quot;let ingredient of ingredients&quot; style&#x3D;&quot;cursor: pointer&quot; class&#x3D;&quot;list-group-item&quot;&gt;
+                    {{ingredient.name}} ({{ingredient.amount}})
+                &lt;/a&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;
-
- </code></pre>
+&lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -407,8 +408,8 @@ export class ShoppingListComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row">    <div class="col-xs-10">        <app-shopping-edit></app-shopping-edit>        <hr>        <ul class="list-group">            <a *ngFor="let ingredient of ingredients" style="cursor: pointer" class="list-group-item">                {{ingredient.name}} ({{ingredient.amount}})            </a>        </ul>    </div></div> </div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'RecipeDetailComponent', 'selector': 'app-recipe-detail'},{'name': 'RecipeItemComponent', 'selector': 'app-recipe-item'},{'name': 'RecipeListComponent', 'selector': 'app-recipe-list'},{'name': 'RecipesComponent', 'selector': 'app-recipes'},{'name': 'ShoppingEditComponent', 'selector': 'app-shopping-edit'},{'name': 'ShoppingListComponent', 'selector': 'app-shopping-list'}];
+        var COMPONENT_TEMPLATE = '<div><div style="border: 2px dotted black">    <p style="text-align: center;">Shopping List</p>    <div class="row">        <div class="col-xs-10">            <app-shopping-edit></app-shopping-edit>            <hr>            <ul class="list-group">                <a *ngFor="let ingredient of ingredients" style="cursor: pointer" class="list-group-item">                    {{ingredient.name}} ({{ingredient.amount}})                </a>            </ul>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'RecipeDetailComponent', 'selector': 'app-recipe-detail'},{'name': 'RecipeEditComponent', 'selector': 'app-recipe-edit'},{'name': 'RecipeItemComponent', 'selector': 'app-recipe-item'},{'name': 'RecipeListComponent', 'selector': 'app-recipe-list'},{'name': 'RecipesComponent', 'selector': 'app-recipes'},{'name': 'RecipeStartComponent', 'selector': 'app-recipe-start'},{'name': 'ShoppingEditComponent', 'selector': 'app-shopping-edit'},{'name': 'ShoppingListComponent', 'selector': 'app-shopping-list'}];
     var DIRECTIVES = [{'name': 'DropdownDirective', 'selector': '[appDropdown]'}];
     var ACTUAL_COMPONENT = {'name': 'ShoppingListComponent'};
 </script>

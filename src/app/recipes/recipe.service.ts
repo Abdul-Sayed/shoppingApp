@@ -1,13 +1,14 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Recipe, IRecipe } from './recipe.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
 
-  private recipes: Recipe[] = [ 
+  private recipes: IRecipe[] = [
     new Recipe(
       'Schnitzel',
       'German Hotdog',
@@ -27,10 +28,14 @@ export class RecipeService {
       ]
     )
   ];
-  public recipeSelected = new EventEmitter<IRecipe>();
+  public recipeSelected = new Subject<IRecipe>();
 
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipeByID(index: number): IRecipe {
+    return this.recipes[index];
   }
 }

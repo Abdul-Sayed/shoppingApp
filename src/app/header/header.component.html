@@ -2,7 +2,7 @@
   <p style="text-align: center;">Header</p>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <span class="navbar-brand">Recipe Book</span>
+      <span class="navbar-brand" routerLink="/" style="cursor: pointer;">Recipe Book</span>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,21 +10,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/recipes" routerLinkActive="bold">Recipes</a>
+            <a class="nav-link" aria-current="page" routerLink="/recipes" routerLinkActive="highlighted">Recipes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/shopping-list" routerLinkActive="bold">Shopping List</a>
+            <a class="nav-link" routerLink="/shopping-list" routerLinkActive="highlighted">Shopping List</a>
           </li>
         </ul>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
             data-bs-toggle="dropdown" aria-expanded="false">
-            Manage Recipe
+            Manage
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item">Add to List</a></li>
-            <li><a class="dropdown-item">Edit Recipe</a></li>
-            <li><a class="dropdown-item">Delete Recipe</a></li>
+            <li><a class="dropdown-item">Save Data</a></li>
+            <li><a class="dropdown-item">Fetch Data</a></li>
           </ul>
         </div>
       </div>

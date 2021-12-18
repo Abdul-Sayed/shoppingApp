@@ -328,16 +328,11 @@ export class RecipeListComponent implements OnInit{
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;border: 3px dashed blue&quot;&gt;
     &lt;p style&#x3D;&quot;text-align: center;&quot;&gt;Recipe List&lt;/p&gt;
-    &lt;div class&#x3D;&quot;row&quot;&gt;
-        &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
-            &lt;button class&#x3D;&quot;btn btn-success&quot;&gt;New Recipe&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;hr&gt;
+    &lt;a class&#x3D;&quot;btn btn-outline-secondary&quot; routerLink&#x3D;&quot;/edit&quot; role&#x3D;&quot;button&quot;&gt;New Recipe&lt;/a&gt;
     &lt;div class&#x3D;&quot;row&quot;&gt;
         &lt;div class&#x3D;&quot;col-xs-12 list-group&quot;&gt;
-            &lt;ng-container *ngFor&#x3D;&quot;let recipe of recipes&quot;&gt;
-                &lt;app-recipe-item [recipe]&#x3D;&quot;recipe&quot;&gt;&lt;/app-recipe-item&gt;
+            &lt;ng-container *ngFor&#x3D;&quot;let recipeEl of recipes; let i&#x3D;index&quot;&gt;
+                &lt;app-recipe-item [recipe]&#x3D;&quot;recipeEl&quot; [index]&#x3D;&quot;i&quot;&gt;&lt;/app-recipe-item&gt;
             &lt;/ng-container&gt;
         &lt;/div&gt;
     &lt;/div&gt;
@@ -376,8 +371,8 @@ export class RecipeListComponent implements OnInit{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div style="border: 3px dashed blue">    <p style="text-align: center;">Recipe List</p>    <div class="row">        <div class="col-xs-12">            <button class="btn btn-success">New Recipe</button>        </div>    </div>    <hr>    <div class="row">        <div class="col-xs-12 list-group">            <ng-container *ngFor="let recipe of recipes">                <app-recipe-item [recipe]="recipe"></app-recipe-item>            </ng-container>        </div>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'RecipeDetailComponent', 'selector': 'app-recipe-detail'},{'name': 'RecipeItemComponent', 'selector': 'app-recipe-item'},{'name': 'RecipeListComponent', 'selector': 'app-recipe-list'},{'name': 'RecipesComponent', 'selector': 'app-recipes'},{'name': 'ShoppingEditComponent', 'selector': 'app-shopping-edit'},{'name': 'ShoppingListComponent', 'selector': 'app-shopping-list'}];
+        var COMPONENT_TEMPLATE = '<div><div style="border: 3px dashed blue">    <p style="text-align: center;">Recipe List</p>    <a class="btn btn-outline-secondary" routerLink="/edit" role="button">New Recipe</a>    <div class="row">        <div class="col-xs-12 list-group">            <ng-container *ngFor="let recipeEl of recipes; let i=index">                <app-recipe-item [recipe]="recipeEl" [index]="i"></app-recipe-item>            </ng-container>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'RecipeDetailComponent', 'selector': 'app-recipe-detail'},{'name': 'RecipeEditComponent', 'selector': 'app-recipe-edit'},{'name': 'RecipeItemComponent', 'selector': 'app-recipe-item'},{'name': 'RecipeListComponent', 'selector': 'app-recipe-list'},{'name': 'RecipesComponent', 'selector': 'app-recipes'},{'name': 'RecipeStartComponent', 'selector': 'app-recipe-start'},{'name': 'ShoppingEditComponent', 'selector': 'app-shopping-edit'},{'name': 'ShoppingListComponent', 'selector': 'app-shopping-list'}];
     var DIRECTIVES = [{'name': 'DropdownDirective', 'selector': '[appDropdown]'}];
     var ACTUAL_COMPONENT = {'name': 'RecipeListComponent'};
 </script>

@@ -332,31 +332,33 @@ export class ShoppingEditComponent {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row&quot;&gt;
-    &lt;form&gt;
-        &lt;div class&#x3D;&quot;row&quot;&gt;
-            &lt;div class&#x3D;&quot;col-sm-5 form-group&quot;&gt;
-                &lt;label for&#x3D;&quot;name&quot;&gt;Name&lt;/label&gt;
-                &lt;input #ingredientName type&#x3D;&quot;text&quot; id&#x3D;&quot;name&quot; class&#x3D;&quot;form-control&quot;&gt;
-            &lt;/div&gt;
-            &lt;div class&#x3D;&quot;col-sm-2 form-group&quot;&gt;
-                &lt;label for&#x3D;&quot;amount&quot;&gt;Amount&lt;/label&gt;
-                &lt;input #ingredientAmount type&#x3D;&quot;number&quot; id&#x3D;&quot;amount&quot; class&#x3D;&quot;form-control&quot;&gt;
-            &lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;border: 3px dashed red&quot;&gt;
+    &lt;p style&#x3D;&quot;text-align: center;&quot;&gt;Shopping Edit&lt;/p&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;form&gt;
             &lt;div class&#x3D;&quot;row&quot;&gt;
-                &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
-                    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success mr-20&quot; 
-                        (click)&#x3D;&quot;shoppingService.addIngredient({name: ingredientName.value, amount: +ingredientAmount.value})&quot;&gt;
-                        Add
-                    &lt;/button&gt;
-                    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger mr-20&quot;&gt;Delete&lt;/button&gt;
-                    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary mr-20  &quot;&gt;Clear&lt;/button&gt;
+                &lt;div class&#x3D;&quot;col-sm-5 form-group&quot;&gt;
+                    &lt;label for&#x3D;&quot;name&quot;&gt;Name&lt;/label&gt;
+                    &lt;input #ingredientName type&#x3D;&quot;text&quot; id&#x3D;&quot;name&quot; class&#x3D;&quot;form-control&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-sm-2 form-group&quot;&gt;
+                    &lt;label for&#x3D;&quot;amount&quot;&gt;Amount&lt;/label&gt;
+                    &lt;input #ingredientAmount type&#x3D;&quot;number&quot; id&#x3D;&quot;amount&quot; class&#x3D;&quot;form-control&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;row&quot;&gt;
+                    &lt;div class&#x3D;&quot;col-xs-12&quot;&gt;
+                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success mr-20&quot;
+                            (click)&#x3D;&quot;shoppingService.addIngredient({name: ingredientName.value, amount: +ingredientAmount.value})&quot;&gt;
+                            Add
+                        &lt;/button&gt;
+                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger mr-20&quot;&gt;Delete&lt;/button&gt;
+                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary mr-20  &quot;&gt;Clear&lt;/button&gt;
+                    &lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/form&gt;
-&lt;/div&gt;
-</code></pre>
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -393,8 +395,8 @@ export class ShoppingEditComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row">    <form>        <div class="row">            <div class="col-sm-5 form-group">                <label for="name">Name</label>                <input #ingredientName type="text" id="name" class="form-control">            </div>            <div class="col-sm-2 form-group">                <label for="amount">Amount</label>                <input #ingredientAmount type="number" id="amount" class="form-control">            </div>            <div class="row">                <div class="col-xs-12">                    <button type="button" class="btn btn-success mr-20"                         (click)="shoppingService.addIngredient({name: ingredientName.value, amount: +ingredientAmount.value})">                        Add                    </button>                    <button type="button" class="btn btn-danger mr-20">Delete</button>                    <button type="button" class="btn btn-primary mr-20  ">Clear</button>                </div>            </div>        </div>    </form></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'RecipeDetailComponent', 'selector': 'app-recipe-detail'},{'name': 'RecipeItemComponent', 'selector': 'app-recipe-item'},{'name': 'RecipeListComponent', 'selector': 'app-recipe-list'},{'name': 'RecipesComponent', 'selector': 'app-recipes'},{'name': 'ShoppingEditComponent', 'selector': 'app-shopping-edit'},{'name': 'ShoppingListComponent', 'selector': 'app-shopping-list'}];
+        var COMPONENT_TEMPLATE = '<div><div style="border: 3px dashed red">    <p style="text-align: center;">Shopping Edit</p>    <div class="row">        <form>            <div class="row">                <div class="col-sm-5 form-group">                    <label for="name">Name</label>                    <input #ingredientName type="text" id="name" class="form-control">                </div>                <div class="col-sm-2 form-group">                    <label for="amount">Amount</label>                    <input #ingredientAmount type="number" id="amount" class="form-control">                </div>                <div class="row">                    <div class="col-xs-12">                        <button type="button" class="btn btn-success mr-20"                            (click)="shoppingService.addIngredient({name: ingredientName.value, amount: +ingredientAmount.value})">                            Add                        </button>                        <button type="button" class="btn btn-danger mr-20">Delete</button>                        <button type="button" class="btn btn-primary mr-20  ">Clear</button>                    </div>                </div>            </div>        </form>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'RecipeDetailComponent', 'selector': 'app-recipe-detail'},{'name': 'RecipeEditComponent', 'selector': 'app-recipe-edit'},{'name': 'RecipeItemComponent', 'selector': 'app-recipe-item'},{'name': 'RecipeListComponent', 'selector': 'app-recipe-list'},{'name': 'RecipesComponent', 'selector': 'app-recipes'},{'name': 'RecipeStartComponent', 'selector': 'app-recipe-start'},{'name': 'ShoppingEditComponent', 'selector': 'app-shopping-edit'},{'name': 'ShoppingListComponent', 'selector': 'app-shopping-list'}];
     var DIRECTIVES = [{'name': 'DropdownDirective', 'selector': '[appDropdown]'}];
     var ACTUAL_COMPONENT = {'name': 'ShoppingEditComponent'};
 </script>

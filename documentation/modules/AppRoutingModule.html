@@ -77,13 +77,17 @@ import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { RecipesComponent } from &#x27;./recipes/recipes.component&#x27;;
 import { RecipeDetailComponent } from &#x27;./recipes/recipe-detail/recipe-detail.component&#x27;;
 import { ShoppingListComponent } from &#x27;./shopping-list/shopping-list.component&#x27;;
+import { RecipeStartComponent } from &#x27;./recipes/recipe-start/recipe-start.component&#x27;;
+import { RecipeEditComponent } from &#x27;./recipes/recipe-edit/recipe-edit.component&#x27;;
 
 const routes: Routes &#x3D; [
   { path: &#x27;&#x27;, redirectTo: &#x27;/recipes&#x27;, pathMatch: &#x27;full&#x27; },
   {
     path: &#x27;recipes&#x27;, component: RecipesComponent,
     children: [
-      { path: &#x27;:name&#x27;, component: RecipeDetailComponent }
+      { path: &#x27;&#x27;, component: RecipeStartComponent, pathMatch: &#x27;full&#x27; },
+      { path: &#x27;edit&#x27;, component: RecipeEditComponent },
+      { path: &#x27;:id&#x27;, component: RecipeDetailComponent }
     ]
   },
   { path: &#x27;shopping-list&#x27;, component: ShoppingListComponent },
