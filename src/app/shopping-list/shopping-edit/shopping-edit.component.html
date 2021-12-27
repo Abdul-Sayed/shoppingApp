@@ -1,27 +1,49 @@
-<div style="border: 3px dashed red">
-    <p style="text-align: center;">Shopping Edit</p>
-    <div class="row">
-        <form>
-            <div class="row">
-                <div class="col-sm-5 form-group">
-                    <label for="name">Name</label>
-                    <input #ingredientName type="text" id="name" class="form-control">
-                </div>
-                <div class="col-sm-2 form-group">
-                    <label for="amount">Amount</label>
-                    <input #ingredientAmount type="number" id="amount" class="form-control">
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <button type="button" class="btn btn-success mr-20"
-                            (click)="shoppingService.addIngredient({name: ingredientName.value, amount: +ingredientAmount.value})">
-                            Add
-                        </button>
-                        <button type="button" class="btn btn-danger mr-20">Delete</button>
-                        <button type="button" class="btn btn-primary mr-20  ">Clear</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+<div class="container-fluid" style="border: 3px dashed red">
+  <p style="text-align: center">Shopping Edit</p>
+  <form (ngSubmit)="editIngredient(f)" #f="ngForm">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            ngModel
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            id="amount"
+            name="amount"
+            ngModel
+            class="form-control"
+            required
+            pattern="^[1-9]+[0-9]*$"
+          />
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="btn btn-success" [disabled]="!f.valid">
+          {{ editMode ? "Edit" : "Add" }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          *ngIf="editMode"
+          (click)="onDelete()"
+        >
+          Delete
+        </button>
+        <button type="button" class="btn btn-primary" (click)="onReset(f)">
+          Clear
+        </button>
+      </div>
     </div>
+  </form>
 </div>

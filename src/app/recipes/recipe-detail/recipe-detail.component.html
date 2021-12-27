@@ -1,37 +1,50 @@
 <div style="border: 2px dashed green">
-    <p style="text-align: center;">Recipe Detail</p>
-    <div class="row">
-        <div class="col-xs-12">
-            <img src={{currentRecipe?.imagePath}} alt={{currentRecipe?.name}} class="img-responsive"
-                style="max-height: 4rem">
-        </div>
+  <p style="text-align: center">Recipe Detail</p>
+  <div class="row">
+    <div class="col-xs-12">
+      <img
+        src="{{ currentRecipe?.imagePath }}"
+        alt="{{ currentRecipe?.name }}"
+        class="img-responsive"
+        style="max-height: 4rem"
+      />
     </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <h1>{{currentRecipe?.name}}</h1>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ currentRecipe?.name }}</h1>
+    </div>
 
-        <mat-form-field appearance="fill" style="width:fit-content">
-            <mat-label>Manage Recipe</mat-label>
-            <mat-select>
-                <mat-option value="Add to List" (click)="addIngredients()">Add to List</mat-option>
-                <mat-option value="Edit Recipe" routerLink="edit">Edit Recipe</mat-option>
-                <mat-option value="Delete Recipe">Delete Recipe</mat-option>
-            </mat-select>
-        </mat-form-field>
+    <mat-form-field appearance="fill" style="width: fit-content">
+      <mat-label>Manage Recipe</mat-label>
+      <mat-select>
+        <mat-option value="Add to List" (click)="addIngredients()"
+          >Add to List</mat-option
+        >
+        <mat-option value="Edit Recipe" (click)="editRecipe()"
+          >Edit Recipe</mat-option
+        >
+        <mat-option value="Delete Recipe" (click)="deleteRecipe()"
+          >Delete Recipe</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {{ currentRecipe?.description }}
     </div>
-    <div class="row">
-        <div class="col-xs-12">
-            {{currentRecipe?.description}}
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="list-group">
+        <li
+          *ngFor="let ingredient of currentRecipe?.ingredients"
+          class="list-group-item"
+        >
+          {{ ingredient.name }} - {{ ingredient.amount }}
+        </li>
+      </ul>
     </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <ul class="list-group">
-                <li *ngFor="let ingredient of currentRecipe?.ingredients" class="list-group-item">
-                    {{ingredient.name}} - {{ingredient.amount}}
-                </li>
-            </ul>
-        </div>
-    </div>
+  </div>
 </div>

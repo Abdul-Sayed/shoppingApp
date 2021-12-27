@@ -1,3 +1,129 @@
-<div style="border: 3px dashed orange">
-    <p style="text-align: center;">Recipe Edit</p>
+<div class="container-fluid" style="border: 3px dashed orange">
+  <p style="text-align: center">Recipe Edit</p>
+  <form [formGroup]="recipeForm" (ngSubmit)="onSaveForm()" class="mb-3">
+    <div class="row mb-4 g-3">
+      <div class="col-md-2">
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!recipeForm.valid"
+        >
+          Save
+        </button>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-danger" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+    </div>
+    <div class="row mb-3 g-3">
+      <div class="col">
+        <div class="form-group">
+          <label for="recipeName" class="form-label">Recipe Name</label>
+          <input
+            type="text"
+            id="recipeName"
+            formControlName="recipeName"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row mb-4 g-3">
+      <div class="col">
+        <div class="form-group">
+          <label for="recipeDescription" class="form-label"
+            >Recipe Description</label
+          >
+          <textarea
+            type="text"
+            id="recipeDescription"
+            formControlName="recipeDescription"
+            class="form-control"
+            rows="4"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3 g-3">
+      <div class="col-xs-3">
+        <div class="form-group">
+          <label for="recipeImage" class="form-label">Recipe Image URL</label>
+          <input
+            type="text"
+            id="recipeImage"
+            formControlName="recipeImage"
+            class="form-control"
+            #recipeImagePath
+          />
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!!recipeImagePath.value" class="row mb-5 g-3">
+      <div class="col">
+        <img
+          src="{{ recipeImagePath.value }}"
+          class="img-fluid"
+          alt="Recipe Image"
+          style="box-shadow: 0px 0px 12px 8px #dcdcdc; border-radius: 1%"
+        />
+      </div>
+    </div>
+    <div formArrayName="ingredients">
+      <div
+        *ngFor="let control of getControls(); let i = index"
+        [formGroupName]="i"
+        class="row mb-3 g-3"
+        style="align-items: flex-end"
+      >
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="ingredientName" class="form-label"
+              >Ingredient Name</label
+            >
+            <input
+              type="text"
+              id="ingredientName"
+              formControlName="ingredientName"
+              class="form-control"
+              aria-label="Ingredient name"
+            />
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="ingredientAmount" class="form-label"
+              >Ingredient Amount</label
+            >
+            <input
+              type="number"
+              id="ingredientAmount"
+              formControlName="ingredientAmount"
+              class="form-control"
+              aria-label="Ingredient amount"
+            />
+          </div>
+        </div>
+        <div class="col-md-1">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="removeIngredient(i)"
+          >
+            X
+          </button>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          (click)="addIngredient()"
+        >
+          Add Ingredient
+        </button>
+      </div>
+    </div>
+  </form>
 </div>

@@ -9,13 +9,14 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
-    path: 'recipes', component: RecipesComponent,
+    path: 'recipes',
+    component: RecipesComponent,
     children: [
       { path: '', component: RecipeStartComponent, pathMatch: 'full' },
       { path: 'new', component: RecipeEditComponent },
       { path: ':id', component: RecipeDetailComponent },
-      { path: ':id/edit', component: RecipeEditComponent }
-    ]
+      { path: ':id/edit', component: RecipeEditComponent },
+    ],
   },
   { path: 'shopping-list', component: ShoppingListComponent },
   { path: '**', component: RecipesComponent, pathMatch: 'full' },
@@ -23,6 +24,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

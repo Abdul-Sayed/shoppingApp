@@ -1,0 +1,11 @@
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
+  animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
