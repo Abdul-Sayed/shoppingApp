@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IRecipe } from '../../../shared/recipe.model';
+import { Recipe } from '../../../shared/recipe.model';
 
 @Component({
   selector: 'app-recipe-item',
@@ -7,7 +7,7 @@ import { IRecipe } from '../../../shared/recipe.model';
   styleUrls: ['./recipe-item.component.scss'],
 })
 export class RecipeItemComponent {
-  @Input() recipe: IRecipe;
+  @Input() recipe: Recipe;
   @Input() index: number;
 
   constructor() {}

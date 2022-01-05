@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingService } from 'src/app/shopping-list/shopping.service';
 import { RecipeService } from '../recipe.service';
-import { IRecipe } from '../../shared/recipe.model';
+import { Recipe } from '../../shared/recipe.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./recipe-detail.component.scss'],
 })
 export class RecipeDetailComponent implements OnInit {
-  currentRecipe: IRecipe;
+  currentRecipe: Recipe;
   id: number;
 
   constructor(
@@ -32,9 +32,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   addIngredients() {
-    if (this.currentRecipe) {
-      this.shoppingService.addIngredients(this.currentRecipe.ingredients);
-    }
+    this.shoppingService.addIngredients(this.currentRecipe.ingredients);
   }
 
   editRecipe() {

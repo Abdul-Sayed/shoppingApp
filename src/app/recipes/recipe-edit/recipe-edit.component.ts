@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
 import { Ingredient } from 'src/app/shared/ingredient.model';
-import { Recipe, IRecipe } from '../../shared/recipe.model';
+import { Recipe } from '../../shared/recipe.model';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -20,7 +20,6 @@ export class RecipeEditComponent implements OnInit {
   recipeForm: FormGroup;
   recipeEditMode = false;
   recipeId: number;
-  currentRecipe: IRecipe;
 
   constructor(
     private router: Router,
@@ -36,7 +35,6 @@ export class RecipeEditComponent implements OnInit {
       this.route.params.subscribe((params: Params) => {
         this.recipeEditMode = true;
         this.recipeId = +params['id'];
-        this.currentRecipe = this.recipeService.getRecipeByID(this.recipeId);
         this.initForm();
       });
     }
@@ -48,16 +46,18 @@ export class RecipeEditComponent implements OnInit {
     let rImagePath = '';
     let recipeIngredients = new FormArray([]);
 
+    const currentRecipe = this.recipeService.getRecipeByID(this.recipeId);
+
     if (this.recipeEditMode) {
-      rName = this.currentRecipe.name;
-      rDescription = this.currentRecipe.description;
-      rImagePath = this.currentRecipe.imagePath;
-      if (this.currentRecipe.ingredients) {
-        for (const ingr of this.currentRecipe.ingredients) {
+      rName = currentRecipe.name;
+      rDescription = currentRecipe.description;
+      rImagePath = currentRecipe.imagePath;
+      if (currentRecipe.ingredients) {
+        for (const ingr of currentRecipe.ingredients) {
           recipeIngredients.push(
             new FormGroup({
-              ingredientName: new FormControl(ingr.name, Validators.required),
-              ingredientAmount: new FormControl(ingr.amount, [
+              name: new FormControl(ingr.name, Validators.required),
+              amount: new FormControl(ingr.amount, [
                 Validators.required,
                 Validators.min(1),
                 Validators.pattern(/^[1-9]+[0-9]*$/),
@@ -81,26 +81,24 @@ export class RecipeEditComponent implements OnInit {
   }
 
   addIngredient() {
-    let ingredientArray = this.recipeForm.get('ingredients') as FormArray;
-    const newIngredient = this.formBuilder.group({
-      ingredientName: new FormControl('', Validators.required),
-      ingredientAmount: new FormControl('', [
-        Validators.required,
-        Validators.min(1),
-        Validators.pattern(/^[1-9]+[0-9]*$/),
-      ]),
-    });
-    ingredientArray.push(newIngredient);
+    (this.recipeForm.get('ingredients') as FormArray).push(
+      new FormGroup({
+        name: new FormControl('', Validators.required),
+        amount: new FormControl('', [
+          Validators.required,
+          Validators.min(1),
+          Validators.pattern(/^[1-9]+[0-9]*$/),
+        ]),
+      })
+    );
   }
 
   removeIngredient(index: number) {
-    let ingredientArray = this.recipeForm.get('ingredients') as FormArray;
-    ingredientArray.removeAt(index);
+    (this.recipeForm.get('ingredients') as FormArray).removeAt(index);
   }
 
   onSaveForm() {
     console.log(this.recipeForm.value);
-    console.log(this.recipeForm.value.ingredients);
     const newRecipe = new Recipe(
       this.recipeForm.value.recipeName,
       this.recipeForm.value.recipeDescription,

@@ -14,8 +14,6 @@ export class ShoppingService implements OnInit {
     new Ingredient('tomatoes', 10),
   ];
 
-  constructor() {}
-
   ngOnInit() {
     this.ingredientsChanged.next(this._ingredients.slice());
   }
@@ -29,7 +27,13 @@ export class ShoppingService implements OnInit {
   }
 
   addIngredient(ingredient: Ingredient) {
-    this._ingredients.push(new Ingredient(ingredient.name, ingredient.amount));
+    // this._ingredients.push(new Ingredient(ingredient.name, ingredient.amount));
+    this._ingredients.push(ingredient);
+    this.ingredientsChanged.next(this._ingredients.slice());
+  }
+
+  addIngredients(ingredients: Ingredient[]) {
+    this._ingredients.push(...ingredients);
     this.ingredientsChanged.next(this._ingredients.slice());
   }
 
@@ -40,11 +44,6 @@ export class ShoppingService implements OnInit {
 
   deleteIngredient(index: number): void {
     this._ingredients.splice(index, 1);
-    this.ingredientsChanged.next(this._ingredients.slice());
-  }
-
-  addIngredients(ingredients: Ingredient[]) {
-    this._ingredients.push(...ingredients);
     this.ingredientsChanged.next(this._ingredients.slice());
   }
 }

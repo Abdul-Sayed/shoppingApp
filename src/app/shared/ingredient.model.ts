@@ -1,8 +1,3 @@
-export interface IIngredient {
-  name: string;
-  amount: number;
-}
-
-export class Ingredient implements IIngredient {
+export class Ingredient {
   constructor(public name: string, public amount: number) {}
 }
