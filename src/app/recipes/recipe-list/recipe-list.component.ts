@@ -21,7 +21,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
         console.log(newRecipes);
         this.recipes = newRecipes;
       });
-    console.log(this.recipes);
   }
 
   ngOnDestroy() {
