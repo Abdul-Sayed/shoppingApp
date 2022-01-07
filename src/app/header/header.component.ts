@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private dataStorageService: DataStorageService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSaveData() {
+    this.dataStorageService.storeRecipes();
   }
 
+  onFetchRecipes() {
+    this.dataStorageService.fetchRecipes().pipe(first()).subscribe();
+  }
 }
