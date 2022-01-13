@@ -17,11 +17,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="isAuthenticated">
           <li class="nav-item">
             <a
               class="nav-link"
-              aria-current="page"
               routerLink="/recipes"
               routerLinkActive="highlighted"
               >Recipes</a
@@ -36,7 +35,26 @@
             >
           </li>
         </ul>
-        <div class="dropdown">
+        <ul class="navbar-nav mb-2 mx-lg-4 mb-lg-0">
+          <li class="nav-item" *ngIf="!isAuthenticated">
+            <a
+              class="nav-link"
+              routerLink="/auth"
+              routerLinkActive="highlighted"
+              >Sign In</a
+            >
+          </li>
+          <li class="nav-item" *ngIf="isAuthenticated">
+            <a
+              class="nav-link"
+              routerLink="/auth"
+              routerLinkActive="highlighted"
+              (click)="onSignOut()"
+              >Sign Out</a
+            >
+          </li>
+        </ul>
+        <div class="dropdown" *ngIf="isAuthenticated">
           <button
             class="btn btn-secondary dropdown-toggle"
             type="button"
