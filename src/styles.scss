@@ -1,16 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~bootstrap/dist/css/bootstrap.css";
-
 // Colors
-$button-grey: hsl(210,8%,95%);
+$button-grey: hsl(210, 8%, 95%);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.highlighted {
-    font-weight: bold;
-    background-color: $button-grey;
-    box-shadow: 0px 5px 4px 2px $button-grey, 0px -5px 4px 2px $button-grey;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.highlighted {
+  font-weight: bold;
+  background-color: $button-grey;
+  box-shadow: 0px 5px 4px 2px $button-grey, 0px -5px 4px 2px $button-grey;
+}
