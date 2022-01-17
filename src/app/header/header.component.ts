@@ -28,7 +28,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onSaveData() {
     this.dataStorageService.storeRecipes();
-    // this.dataStorageService.storeRecipes().pipe(first()).subscribe();
   }
 
   onFetchRecipes() {
@@ -37,6 +36,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onSignOut() {
     this.isAuthenticated = false;
+    this.authService.signOut();
   }
 
   ngOnDestroy(): void {
@@ -44,5 +44,4 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 }
 
-// todo: Add a canactivate guard to the recipes route. Only allow if the user is authenticated
-// store the token and protect certain routes from being visited manually if the token is expired, such as recipes and shopping-list
+// Add a canactivate guard to the recipes and shopping-list route. Only allow if the user is authenticated; user is logged in token is not expired

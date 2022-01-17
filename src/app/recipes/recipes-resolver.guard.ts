@@ -23,3 +23,8 @@ export class RecipesResolverGuard implements Resolve<Recipe[]> {
     }
   }
 }
+
+/*
+Note: This resolver guard is meant to pre-fetch the recipes from the server in case
+the user enters the recipes/id or recipes/id/edit routes manually from the url bar
+*/
