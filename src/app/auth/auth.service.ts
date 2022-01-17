@@ -33,8 +33,8 @@ export interface AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  signUpURL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.apiKey}`;
-  signInURL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`;
+  signUpURL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseApiKey}`;
+  signInURL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseApiKey}`;
 
   user = new BehaviorSubject<User | null>(null);
   userToken = new BehaviorSubject<string>('');
